@@ -5,6 +5,10 @@ import sys, io
 import urllib.request
 # from urllib.request import Request, urllib
 
+
+# finished - loops through csv file (sample), which contains company website urls
+# does a google search of the terms of conditions of those companies
+# extracts the html of the webpage and saves is either as an html or txt file
 try: 
     from googlesearch import search 
 except ImportError:  
@@ -24,12 +28,12 @@ with open('./sample.csv', 'r', encoding='utf-8') as _filehandler:
             txt_file_name = row[0] + ".txt"
 
             	# save as txt
-            # with open(txt_file_name, 'w', encoding='utf-8') as file:
-            #     file.write(r.text)
-            	# file.close()
-
-            	# save as html
-            with open(html_name, "w", encoding = 'utf-8') as file:
+            with open(txt_file_name, 'w', encoding='utf-8') as file:
                 file.write(r.text)
                 file.close()
+
+            	# save as html
+            # with open(html_name, "w", encoding = 'utf-8') as file:
+            #     file.write(r.text)
+            #     file.close()
                 
